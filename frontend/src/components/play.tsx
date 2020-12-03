@@ -14,7 +14,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React, { Component, useEffect, useState } from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 import { playDeck, getPlayDeck } from "../api/rest";
 import { CheckIcon, CloseIcon } from "@chakra-ui/icons";
 import { DeckProps } from "./table";
@@ -83,10 +83,19 @@ class Play extends Component<RouteComponentProps<RouterParams>, IState> {
     const { deck, finished, chosenCards, played } = this.state;
 
     if (finished) {
-      return (
+      return chosenCards.length ? (
         <Box pt={5}>
           <DisplayBox cards={chosenCards} offset={1} />
         </Box>
+      ) : (
+        <Center h="80vh">
+          <Text fontSize="3xl">
+            No matches! 
+          </Text>
+            <Button ml={1}>
+              <Link to="/plays">go back</Link>
+            </Button>
+        </Center>
       );
     } else if (played) {
       return <Panel />;
