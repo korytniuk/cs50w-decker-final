@@ -48,21 +48,21 @@ const Row: React.FC<{ deck: DeckProps }> = ({ deck }) => (
     align="center"
     mb={1}
   >
-    <Box w="30%">
+    <Box flex={0.5}>
       <Text>{deck.title}</Text>
     </Box>
-    <Stack direction="row" w="40%">
+    <Stack direction="row" flex={0.5}>
       {deck.tags.map((n, i) => (
         <Tag key={i}>{n}</Tag>
       ))}
     </Stack>
-    <Flex direction="row" align="center" w="10%">
+    <Flex direction="row" align="center">
       <Text>
         {deck.views}
       </Text>
       <ViewIcon ml={1}/>
     </Flex>
-    <Box align="right" w="20%">
+    <Box align="right">
         <ButtonGroup>
           <Link to={`/decks/${deck.id}`}>
             <Button>View</Button>  
