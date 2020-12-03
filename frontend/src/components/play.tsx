@@ -12,6 +12,7 @@ import {
   Input,
   Button,
   useToast,
+  Spacer,
 } from "@chakra-ui/react";
 import React, { Component, useEffect, useState } from "react";
 import { Link, RouteComponentProps, withRouter } from "react-router-dom";
@@ -46,7 +47,7 @@ class Play extends Component<RouteComponentProps<RouterParams>, IState> {
   }
 
   componentDidMount() {
-    const { history } = this.props; 
+    const { history } = this.props;
     getPlayDeck(this.state.id).then(
       (res) => {
         if (res.finished) {
@@ -58,7 +59,7 @@ class Play extends Component<RouteComponentProps<RouterParams>, IState> {
         }
       },
       (error) => {
-        history.push(`/plays`)
+        history.push(`/plays`);
       }
     );
   }
@@ -70,7 +71,11 @@ class Play extends Component<RouteComponentProps<RouterParams>, IState> {
       this.state.id,
       cards.filter((x) => x.chosen).map((x) => x.content)
     ).then(
-      (res) => {},
+      (res) => {
+        if (res.finished) {
+          window.location.reload();
+        }
+      },
       (err) => {}
     );
   }
@@ -85,12 +90,10 @@ class Play extends Component<RouteComponentProps<RouterParams>, IState> {
         </Box>
       ) : (
         <Center h="80vh">
-          <Text fontSize="3xl">
-            No matches! 
-          </Text>
-            <Button ml={1}>
-              <Link to="/plays">go back</Link>
-            </Button>
+          <Text fontSize="3xl">No matches!</Text>
+          <Button ml={1}>
+            <Link to="/plays">Go back</Link>
+          </Button>
         </Center>
       );
     } else if (played) {
@@ -140,6 +143,9 @@ const Panel: React.FC<any> = ({}) => {
           />
           <Button onClick={onCopy} ml={2}>
             {hasCopied ? "Copied" : "Copy"}
+          </Button>
+          <Button ml={2}>
+            <Link to="/plays">Go back</Link>
           </Button>
         </Flex>
       </VStack>
@@ -203,7 +209,7 @@ const CardChooser: React.FC<any> = ({ deck, onHandlePlay }) => {
         borderWidth="1px"
       >
         <ScaleFade initialScale={0.01} in={show}>
-          <Text fontSize="3xl" color="grey">
+          <Text textAlign="center" p={5} fontSize="2xl" color="grey">
             {cards[currentIndex].content}
           </Text>
         </ScaleFade>
