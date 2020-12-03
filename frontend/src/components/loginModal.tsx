@@ -1,4 +1,13 @@
-import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, useDisclosure } from "@chakra-ui/react";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure,
+} from "@chakra-ui/react";
 import React from "react";
 import LoginForm from "./login";
 
@@ -6,7 +15,9 @@ const LoginModal: React.FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button border="1px" bg="transparent" onClick={onOpen}>Login</Button>
+      <Button border="1px" bg="transparent" onClick={onOpen}>
+        Login
+      </Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -14,7 +25,7 @@ const LoginModal: React.FC = () => {
           <ModalHeader>Login</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <LoginForm onClose={onClose}/>
+            <LoginForm onClose={onClose} />
           </ModalBody>
         </ModalContent>
       </Modal>

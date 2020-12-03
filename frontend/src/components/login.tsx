@@ -26,8 +26,6 @@ export default function LoginForm({ onClose }: { onClose?: () => void }) {
   const history = useHistory();
   const toast = useToast();
 
-  //TODO refactor
-
   function validatePassword(value: String) {
     let error;
     if (!value) {

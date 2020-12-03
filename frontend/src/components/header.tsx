@@ -6,21 +6,12 @@ import {
   Text,
   Button,
   IconButton,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
   Stack,
-  useDisclosure,
 } from "@chakra-ui/react";
 import { Link, useHistory } from "react-router-dom";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import UserContext from "../contexts/userContext";
 import { logoutUser } from "../api/auth";
-import LoginForm from "./login";
 import LoginModal from "./loginModal";
 
 type IProps = {
@@ -34,7 +25,6 @@ const MenuItems = ({ children, to = "/" }: IProps) => (
   </Text>
 );
 
-// Note: This code could be better, so I'd recommend you to understand how I solved and you could write yours better :)
 const Header = (props: any) => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);

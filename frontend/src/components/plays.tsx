@@ -5,8 +5,6 @@ import {
   ButtonGroup,
   Divider,
   Flex,
-  Stack,
-  Tag,
   Spacer,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
@@ -20,7 +18,6 @@ import {
 } from "./table";
 import { getPlayDecks } from "../api/rest";
 import { Link } from "react-router-dom";
-import { ViewIcon } from "@chakra-ui/icons";
 
 const Plays: React.FC = () => {
   const [term, setTerm] = useState("");

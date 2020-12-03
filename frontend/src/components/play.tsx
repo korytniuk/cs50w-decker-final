@@ -5,7 +5,6 @@ import {
   Center,
   Divider,
   Flex,
-  Spacer,
   IconButton,
   Box,
   ScaleFade,
@@ -199,7 +198,9 @@ const CardChooser: React.FC<any> = ({ deck, onHandlePlay }) => {
         borderWidth="1px"
       >
         <ScaleFade initialScale={0.01} in={show}>
-          <Text fontSize="3xl" color="grey">{cards[currentIndex].content}</Text>
+          <Text fontSize="3xl" color="grey">
+            {cards[currentIndex].content}
+          </Text>
         </ScaleFade>
       </Center>
       <HStack justify="space-between" w="40%">
