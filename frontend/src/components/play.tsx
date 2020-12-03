@@ -132,7 +132,7 @@ const Panel: React.FC<any> = ({}) => {
           You've finished the deck!
         </Text>
         <Text fontSize="lg" textAlign="center">
-          Share it with your friends to play to see the results.
+          Share the link with your friend to play to see the result.
         </Text>
         <Flex mt={2}>
           <Input
