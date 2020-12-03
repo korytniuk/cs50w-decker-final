@@ -60,7 +60,6 @@ class DeckDetail extends Component<IProps> {
           <Stack gap={4} mt={1}>
             <Flex justifyContent="space-evenly">
               <Heading textAlign="center">{deck.title}</Heading>
-              {/* <Spacer/> */}
               <Button onClick={() => this.handlePlayClick()}>Play</Button>
             </Flex>
             <DisplayBox cards={deck.cards} />

@@ -68,13 +68,11 @@ const DeckForm: React.FC = () => {
 
   const onSubmit = (values: FormData) => {
     setSubmitting(true);
-    console.log(values, cards);
     const data = {
       ...values,
       cards,
       tags: values.tags.split(",").map((x) => x.trim()),
     };
-    console.log(data);
     createDeck(data)
       .then((res) => {
         history.push(`/decks/${res.id}`);
