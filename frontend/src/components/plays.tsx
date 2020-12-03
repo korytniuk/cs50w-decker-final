@@ -6,6 +6,7 @@ import {
   Divider,
   Flex,
   Spacer,
+  Tag,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import {
@@ -105,7 +106,7 @@ const Row: React.FC<{ deck: PlayDeckProps }> = ({ deck }) => (
         {deck.plays ? (
         <Text>Games left: {deck.plays}</Text>
         ) : (
-          null
+          <Tag size="sm" bg="green.300" color="white">finished</Tag>
         ) }
       </Box>
       <Spacer />
