@@ -56,19 +56,15 @@ const Row: React.FC<{ deck: DeckProps }> = ({ deck }) => (
         <Tag key={i}>{n}</Tag>
       ))}
     </Stack>
-    <Flex direction="row" align="center">
+    <Flex direction="row" align="center" ml={1}>
       <Text>
         {deck.views}
       </Text>
-      <ViewIcon ml={1}/>
+      <ViewIcon ml={1} mr={2}/>
+      <Link to={`/decks/${deck.id}`}>
+        <Button>View</Button>  
+      </Link>
     </Flex>
-    <Box align="right">
-        <ButtonGroup>
-          <Link to={`/decks/${deck.id}`}>
-            <Button>View</Button>  
-          </Link>
-        </ButtonGroup>
-    </Box>
   </Flex>
 );
 

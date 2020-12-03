@@ -116,7 +116,7 @@ const DisplayBox: React.FC<{ cards: string[]; offset?: number }> = ({
             borderWidth="1px"
           >
             <Flex alignItems="center" justifyContent="center" h="100%">
-              <Text color="grey" fontSize={x.length < 20? "2xl" : "lg"}>
+              <Text textAlign="center" p={5} color="grey">
                 {x}
               </Text>
             </Flex>
