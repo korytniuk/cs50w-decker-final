@@ -46,6 +46,8 @@ The result of this game will be the intersections of two lists:
 * The Godfather: Part II (1974)
 
 That is it, now Tom and Jerry have a list of movies that they both want to watch.
+The more cards in the deck, the more chances that players will have intersections.
+Otherwise, the app will render *no matches:(*
 
 ## App description, folder structure, and tech stack
 
