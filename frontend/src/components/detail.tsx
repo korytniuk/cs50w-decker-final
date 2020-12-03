@@ -29,13 +29,14 @@ class DeckDetail extends Component<IProps> {
 
   componentDidMount() {
     let { id } = this.props.match.params;
+    const { history } = this.props;
 
     getDeck(id)
       .then((res) => {
         this.setState({ deck: res });
       })
       .catch((error) => {
-        console.log(error);
+        history.push(`/decks/`);
       });
   }
 
@@ -47,7 +48,7 @@ class DeckDetail extends Component<IProps> {
       .then((res) => {
         history.push(`/play/${res.id}/`);
       })
-      .catch((error) => console.log(error));
+      .catch((error) =>{});
   }
 
   render() {

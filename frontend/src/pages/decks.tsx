@@ -20,7 +20,6 @@ const Decks: React.FC = () => {
 
   const onTermChange = (newTerm: string) => {
     getDecks(1, newTerm).then((result) => {
-      console.log(result);
       setSearchList(result);
     });
   };

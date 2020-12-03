@@ -22,7 +22,6 @@ const loginUser = (username: String, password: String): Promise<any | Error> => 
   return tokenRequest
     .post(`/api/token/`, loginBody)
     .then((response) => {
-      console.log(response);
       window.localStorage.setItem(ACCESS_TOKEN, response.data.access);
       window.localStorage.setItem(REFRESH_TOKEN, response.data.refresh);
       window.localStorage.setItem(USERNAME, response.data.user)

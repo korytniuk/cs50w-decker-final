@@ -36,7 +36,6 @@ const Plays: React.FC = () => {
 
   const onTermChange = (newTerm: string) => {
     getPlayDecks(1, newTerm).then((result) => {
-      console.log(result);
       setSearchList(result);
     });
   };
@@ -52,7 +51,6 @@ const Plays: React.FC = () => {
   //similar to componentDidMount
   useEffect(() => {
     getPlayDecks().then((result) => {
-      console.log(result);
       setSearchList(result);
     });
   }, []);
@@ -101,16 +99,20 @@ const Row: React.FC<{ deck: PlayDeckProps }> = ({ deck }) => (
     <Box flex="1">
       <Text>{deck.deck.title}</Text>
     </Box>
-    <Flex direction="row" align="center" flex="0.5">
+    <Flex direction="row" align="center" flex="0.3j">
       <Box>
         {deck.plays ? (
-        <Text>Games left: {deck.plays}</Text>
+          <Tag size="sm">
+            games left: {deck.plays}
+          </Tag>
         ) : (
-          <Tag size="sm" bg="green.300" color="white">finished</Tag>
-        ) }
+          <Tag size="sm" bg="green.300" color="white">
+            finished
+          </Tag>
+        )}
       </Box>
       <Spacer />
-      <Box>
+      <Box ml={2}>
         <ButtonGroup>
           <Link to={`/play/${deck.id}`}>
             <Button bg={deck.is_played ? "grey.50" : "red.100"}>

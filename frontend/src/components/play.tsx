@@ -14,7 +14,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import React, { Component, useEffect, useState } from "react";
-import { Link, RouteComponentProps } from "react-router-dom";
+import { Link, RouteComponentProps, withRouter } from "react-router-dom";
 import { playDeck, getPlayDeck } from "../api/rest";
 import { CheckIcon, CloseIcon } from "@chakra-ui/icons";
 import { DeckProps } from "./table";
@@ -46,6 +46,7 @@ class Play extends Component<RouteComponentProps<RouterParams>, IState> {
   }
 
   componentDidMount() {
+    const { history } = this.props; 
     getPlayDeck(this.state.id).then(
       (res) => {
         if (res.finished) {
@@ -57,8 +58,7 @@ class Play extends Component<RouteComponentProps<RouterParams>, IState> {
         }
       },
       (error) => {
-        //todo handle
-        console.log(error.request.status);
+        history.push(`/plays`)
       }
     );
   }
@@ -70,12 +70,8 @@ class Play extends Component<RouteComponentProps<RouterParams>, IState> {
       this.state.id,
       cards.filter((x) => x.chosen).map((x) => x.content)
     ).then(
-      (res) => {
-        console.log(res);
-      },
-      (err) => {
-        console.log(err);
-      }
+      (res) => {},
+      (err) => {}
     );
   }
 
@@ -231,4 +227,4 @@ const CardChooser: React.FC<any> = ({ deck, onHandlePlay }) => {
   );
 };
 
-export default Play;
+export default withRouter(Play);
